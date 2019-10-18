@@ -39,7 +39,6 @@ public class studentList {
                     j++;
                 }
             }
-            //System.out.println("Total Student: " + i);
         } catch (IOException e) {
             e.printStackTrace();
         }

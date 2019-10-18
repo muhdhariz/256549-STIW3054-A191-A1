@@ -18,11 +18,10 @@ public class studentComment {
             if (sS[i][0] == null && sS[i][1] == null) {
                 sS[i][0] = " ";
                 sS[i][1] = " ";
-            }
-            if (match.isMatch("^ ", sS[i][1])) {
+                sS[i][2] = " ";
+            } else if (match.isMatch("^ ", sS[i][1])) {
                 sS[i][1] = sS[i][1].replaceAll("^ ", "");
             }
-            //System.out.println(sS[i][1]);
         }
     }
 
@@ -75,13 +74,16 @@ public class studentComment {
                         for (String item : splitN3) {
                             String[] splitN4 = item.split("Matric no");
                             for (String element : splitN4) {
-                                if (match.isMatch("[a-zA-Z]", element)
-                                        && !match.isMatch("[0-9]", element)
-                                        && !match.isMatch("https", element)
-                                        && !match.isMatch("//", element)
-                                        && !match.isMatch("[Mm]atri[cx]", element)) {
-                                    sS[p][1] = element;
-                                    p++;
+                                String[] splitN5 = element.split("link");
+                                for (String name : splitN5) {
+                                    if (match.isMatch("[a-zA-Z]", name)
+                                            && !match.isMatch("[0-9]", name)
+                                            && !match.isMatch("https", name)
+                                            && !match.isMatch("//", name)
+                                            && !match.isMatch("[Mm]atri[cx]", name)) {
+                                        sS[p][1] = name;
+                                        p++;
+                                    }
                                 }
                             }
                         }
