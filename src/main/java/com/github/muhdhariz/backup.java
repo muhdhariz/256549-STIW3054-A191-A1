@@ -11,7 +11,7 @@ public class backup {
     private static final String FILE_NAME = "C:/Users/muhdh/OneDrive - UNIVERSITY UTARA MALAYSIA/Study/A191/Real-Time Programming/Exercise1.xlsx";
 
     public static void main(String[] args) {
-        Compare.main(args);
+        Comparison.main(args);
 
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("Datatypes in Java");
@@ -27,7 +27,7 @@ public class backup {
         int rowNum = 0;
         System.out.println("Creating excel");
 
-        ApachePOIExcelWrite.getRowNum(sheet, datatypes, rowNum);
+        Main.getRowNum(sheet, datatypes, rowNum);
 
         try {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);

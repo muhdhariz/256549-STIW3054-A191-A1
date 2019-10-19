@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class ApachePOIExcelWrite {
+public class Main {
 
     private static final String FILE_NAME = "C:/Users/muhdh/OneDrive - UNIVERSITY UTARA MALAYSIA/Study/A191/Real-Time Programming/Exercise1.xlsx";
     private static XSSFWorkbook workbook = new XSSFWorkbook();
@@ -17,11 +17,11 @@ public class ApachePOIExcelWrite {
     private static XSSFSheet sheet3 = workbook.createSheet("Unknown List");
 
     public static void main(String[] args) {
-        Compare.main(args);
+        Comparison.main(args);
 
-        Object[][] data1 = Compare.studS;
-        Object[][] data2 = Compare.studNS;
-        Object[][] data3 = Compare.studU;
+        Object[][] data1 = Comparison.studS;
+        Object[][] data2 = Comparison.studNS;
+        Object[][] data3 = Comparison.studU;
 
         int rowNum = 0;
         System.out.println("Creating Excel File");
@@ -42,18 +42,23 @@ public class ApachePOIExcelWrite {
         System.out.println("Done");
     }
 
-    static void getRowNum(XSSFSheet sheet1, Object[][] data1, int rowNum) {
-        for (Object[] datatype : data1) {
-            Row row = sheet1.createRow(rowNum++);
+    static void getRowNum(XSSFSheet sheet, Object[][] data, int rowNum) {
+        for (Object[] datatype : data) {
+            Row row = sheet.createRow(rowNum++);
             int colNum = 0;
             for (Object field : datatype) {
                 Cell cell = row.createCell(colNum++);
+                sheet.autoSizeColumn(rowNum);
                 if (field instanceof String) {
                     cell.setCellValue((String) field);
                 } else if (field instanceof Integer) {
                     cell.setCellValue((Integer) field);
                 }
             }
+        }
+
+        for (int x = 0; x < sheet.getRow(0).getPhysicalNumberOfCells(); x++) {
+            sheet.autoSizeColumn(x);
         }
     }
 }
