@@ -1,0 +1,9 @@
+# Default ignored files
+target
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/

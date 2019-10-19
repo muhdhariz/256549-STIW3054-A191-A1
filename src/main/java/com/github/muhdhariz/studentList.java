@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class studentList {
     private static Match match = new Match();
-    static String[][] sL = new String[38][2];
+    static String[][] sL = new String[40][2];
     private static int i = 0, j = 0;
 
     public static void main(String[] args) {

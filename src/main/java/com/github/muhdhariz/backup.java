@@ -27,7 +27,7 @@ public class backup {
         int rowNum = 0;
         System.out.println("Creating excel");
 
-        Main.getRowNum(sheet, datatypes, rowNum);
+        Excel.getRowNum(sheet, datatypes, rowNum);
 
         try {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);

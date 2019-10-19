@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class studentComment {
     private static Match match = new Match();
-    static String[][] sS = new String[38][3];
+    static String[][] sS = new String[40][3];
     private static int i = 0, j = 0, p = 0;
 
     public static void main(String[] args) {
@@ -26,7 +26,6 @@ public class studentComment {
     }
 
     private void Main() {
-
         try {
             String ghLink = "https://github.com/STIW3054-A191/Main-Issues/issues/1";
             Document doc = Jsoup.connect(ghLink).get();
@@ -66,6 +65,7 @@ public class studentComment {
                         }
                     }
                 }
+
                 String[] splitN = datas.text().split("Name");
                 for (String s : splitN) {
                     String[] splitN2 = s.split(":");

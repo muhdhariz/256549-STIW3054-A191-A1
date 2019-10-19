@@ -5,25 +5,27 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Main {
+public class Excel {
 
     private static final String FILE_NAME = "C:/Users/muhdh/OneDrive - UNIVERSITY UTARA MALAYSIA/Study/A191/Real-Time Programming/Exercise1.xlsx";
     private static XSSFWorkbook workbook = new XSSFWorkbook();
     private static XSSFSheet sheet1 = workbook.createSheet("Students Submit");
     private static XSSFSheet sheet2 = workbook.createSheet("Students Not Submit");
     private static XSSFSheet sheet3 = workbook.createSheet("Unknown List");
+    private static Comparison comp = new Comparison();
 
     public static void main(String[] args) {
-        Comparison.main(args);
-
+        comp.main(args);
         Object[][] data1 = Comparison.studS;
         Object[][] data2 = Comparison.studNS;
         Object[][] data3 = Comparison.studU;
 
         int rowNum = 0;
+        System.out.println();
         System.out.println("Creating Excel File");
 
         getRowNum(sheet1, data1, rowNum);
@@ -36,6 +38,8 @@ public class Main {
             FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
             workbook.write(outputStream);
             workbook.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found or currently open");
         } catch (IOException e) {
             e.printStackTrace();
         }
