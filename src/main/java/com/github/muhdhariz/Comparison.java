@@ -37,7 +37,7 @@ public class Comparison {
                 studNS[totalNotCommented + 1][0] = String.valueOf(totalNotCommented + 1);
                 studNS[totalNotCommented + 1][1] = studentList.sL[i][0];
                 studNS[totalNotCommented + 1][2] = studentList.sL[i][1];
-                studNS[totalNotCommented + 1][3] = "No Submision";
+                studNS[totalNotCommented + 1][3] = "No Submission";
                 totalNotCommented++;
             }
         }

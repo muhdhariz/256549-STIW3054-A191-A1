@@ -9,9 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Excel {
+public class Main {
 
-    private static final String FILE_NAME = "C:/Users/muhdh/OneDrive - UNIVERSITY UTARA MALAYSIA/Study/A191/Real-Time Programming/Exercise1.xlsx";
+    private static final String FILE_NAME = "C:/java_Project/Real_Time_Programming_Maven/Assignment1/Exercise1.xlsx";
     private static XSSFWorkbook workbook = new XSSFWorkbook();
     private static XSSFSheet sheet1 = workbook.createSheet("Students Submit");
     private static XSSFSheet sheet2 = workbook.createSheet("Students Not Submit");
@@ -19,6 +19,7 @@ public class Excel {
     private static Comparison comp = new Comparison();
 
     public static void main(String[] args) {
+
         comp.main(args);
         Object[][] data1 = Comparison.studS;
         Object[][] data2 = Comparison.studNS;
@@ -26,7 +27,7 @@ public class Excel {
 
         int rowNum = 0;
         System.out.println();
-        System.out.println("Creating Excel File");
+        System.out.println("Creating Main File");
 
         getRowNum(sheet1, data1, rowNum);
 
