@@ -5,21 +5,32 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+class ShowProperties {
+
+    static File temp;
+
+    public static void main(String[] args) throws IOException {
+        temp = File.createTempFile("Exercise1_", ".xlsx");
+    }
+}
+
 public class Main {
 
-    private static final String FILE_NAME = "C:/java_Project/Real_Time_Programming_Maven/Assignment1/Exercise1.xlsx";
+    private static String FILE_NAME;
     private static XSSFWorkbook workbook = new XSSFWorkbook();
     private static XSSFSheet sheet1 = workbook.createSheet("Students Submit");
     private static XSSFSheet sheet2 = workbook.createSheet("Students Not Submit");
     private static XSSFSheet sheet3 = workbook.createSheet("Unknown List");
     private static Comparison comp = new Comparison();
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+        ShowProperties.main(args);
+        FILE_NAME = ShowProperties.temp.toString();
         comp.main(args);
         Object[][] data1 = Comparison.studS;
         Object[][] data2 = Comparison.studNS;
@@ -27,7 +38,8 @@ public class Main {
 
         int rowNum = 0;
         System.out.println();
-        System.out.println("Creating Main File");
+        System.out.println("Creating " + ShowProperties.temp.getName() + " File");
+        System.out.println("Excel Filepath: " + ShowProperties.temp.getAbsolutePath());
 
         getRowNum(sheet1, data1, rowNum);
 
