@@ -8,10 +8,10 @@
   The assignment 1 is about to get data from issue 1 and analyze the data and compare it with the student list. The data will consist the list of student submit, student not submit and unknown list.
 
 ## Output
-![alt text](http://githubbers.com/haris/real_time_programming/Output.png)
+![alt text](http://githubbers.com/haris/real_time_programming/Asg1/Output.png)
 
 ## UML Class Diagram
-![alt text](http://githubbers.com/haris/real_time_programming/UML%20Diagram.png)
+![alt text](http://githubbers.com/haris/real_time_programming/Asg1/UML%20Diagram.png)
 
 ## Youtube Presentation
 https://www.youtube.com/watch?v=NV2iKuE-6SQ
